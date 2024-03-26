@@ -1,0 +1,16 @@
+groups:
+  - name: TestRuleGroup
+    rules:
+      - alert: TestAlert
+        expr: >
+          sum(test_metric{
+            group=~"test*",
+            group!~"another-test-job.*",
+            group!~"one-last-test-job.*",
+          }) by (env, cluster) > 50
+        for: 10m
+        labels:
+          env: prod
+        annotations:
+          summary: Test summary
+          description: Test description
