@@ -5,7 +5,7 @@ groups:
         expr: >
           sum(test_metric{
             group=~"test*",
-            group!~"another-test-job.*",
+            group!~"another-test-job",
             group!~"one-last-test-job.*",
           }) by (env, cluster) > 50
         for: 10m
