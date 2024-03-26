@@ -6,7 +6,7 @@ groups:
           sum(test_metric{
             group=~"test*",
             group!~"another-test-job.*",
-            group!~"one-last-test-job.*",
+            group!~"one-last-test-job",
           }) by (env, cluster) > 50
         for: 10m
         labels:
